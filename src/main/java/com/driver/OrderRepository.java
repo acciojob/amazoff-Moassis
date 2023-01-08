@@ -82,11 +82,6 @@ public class OrderRepository {
     public int getCountOfUnassignedOrders() {
         // Count of orders that have not been assigned to any DeliveryPartner
         int countOfOrders = orderDb.size() - assignedDb.size();
-        // for (String s : orderDb.keySet()) {
-        // if (!assignedDb.containsKey(s)) {
-        // countOfOrders++;
-        // }
-        // }
         return countOfOrders;
     }
 
@@ -125,8 +120,11 @@ public class OrderRepository {
         // Delete the partnerId
         // And push all his assigned orders to unassigned orders.
         partnerDb.remove(partnerId);
-        List<String> list = pairDb.get(partnerId);
-        for (String s : list) {
+
+        List<String> list = pairDb.getOrDefault(partnerId, new ArrayList<>());
+        ListIterator<String> itr = list.listIterator();
+        while (itr.hasNext()) {
+            String s = itr.next();
             assignedDb.remove(s);
         }
         pairDb.remove(partnerId);
