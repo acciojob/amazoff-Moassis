@@ -19,7 +19,7 @@ public class OrderController {
             return new ResponseEntity<>("New order added successfully", HttpStatus.CREATED);
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -30,7 +30,7 @@ public class OrderController {
             orderService.addPartner(partnerId);
             return new ResponseEntity<>("New delivery partner added successfully", HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -42,7 +42,7 @@ public class OrderController {
             orderService.addOrderPartnerPair(orderId, partnerId);
             return new ResponseEntity<>("New order-partner pair added successfully", HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -54,7 +54,7 @@ public class OrderController {
             Order order = orderService.getOrderById(orderId);
             return new ResponseEntity<>(order, HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -66,7 +66,7 @@ public class OrderController {
             DeliveryPartner deliveryPartner = orderService.getPartnerById(partnerId);
             return new ResponseEntity<>(deliveryPartner, HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -78,7 +78,7 @@ public class OrderController {
             Integer orderCount = orderService.getOrderCountByPartnerId(partnerId);
             return new ResponseEntity<>(orderCount, HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -90,7 +90,7 @@ public class OrderController {
             List<String> orders = orderService.getOrdersByPartnerId(partnerId);
             return new ResponseEntity<>(orders, HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -102,7 +102,7 @@ public class OrderController {
             List<String> orders = orderService.getAllOrders();
             return new ResponseEntity<>(orders, HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -114,7 +114,7 @@ public class OrderController {
             Integer countOfOrders = orderService.getCountOfUnassignedOrders();
             return new ResponseEntity<>(countOfOrders, HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -127,7 +127,7 @@ public class OrderController {
             Integer countOfOrders = orderService.getOrdersLeftAfterGivenTimeByPartnerId(time, partnerId);
             return new ResponseEntity<>(countOfOrders, HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -139,7 +139,7 @@ public class OrderController {
             String time = orderService.getLastDeliveryTimeByPartnerId(partnerId);
             return new ResponseEntity<>(time, HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
     }
 
@@ -151,7 +151,7 @@ public class OrderController {
             orderService.deleteOrderById(partnerId);
             return new ResponseEntity<>(partnerId + " removed successfully", HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
@@ -164,7 +164,7 @@ public class OrderController {
             orderService.deleteOrderById(orderId);
             return new ResponseEntity<>(orderId + " removed successfully", HttpStatus.CREATED);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NullPointerException();
         }
 
     }
