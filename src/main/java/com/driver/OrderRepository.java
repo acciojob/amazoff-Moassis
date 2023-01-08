@@ -32,6 +32,8 @@ public class OrderRepository {
         list.add(orderId);
         pairDb.put(partnerId, list);
         assignedDb.put(orderId, partnerId);
+        DeliveryPartner partner = partnerDb.get(partnerId);
+        partner.setNumberOfOrders(list.size());
         return "Added";
 
     }
