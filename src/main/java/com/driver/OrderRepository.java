@@ -111,8 +111,22 @@ public class OrderRepository {
             deliveryTime = Math.max(deliveryTime, order.getDeliveryTime());
         }
         int hour = deliveryTime / 60;
+        String sHour = "";
+        if (hour < 10) {
+            sHour = "0" + String.valueOf(hour);
+        } else {
+            sHour = String.valueOf(hour);
+        }
+
         int min = deliveryTime % 60;
-        time = String.valueOf(hour) + ":" + String.valueOf(min);
+        String sMin = "";
+        if (min < 10) {
+            sMin = "0" + String.valueOf(min);
+        } else {
+            sMin = String.valueOf(min);
+        }
+
+        time = sHour + ":" + sMin;
 
         return time;
 
