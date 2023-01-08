@@ -30,6 +30,7 @@ public class OrderRepository {
         // This is basically assigning that order to that partnerId
         List<String> list = pairDb.getOrDefault(partnerId, new ArrayList<>());
         list.add(orderId);
+        pairDb.put(partnerId, list);
         assignedDb.put(orderId, partnerId);
         return "Added";
 
