@@ -39,9 +39,9 @@ public class OrderService {
         return result;
     }
 
-    public Integer getOrderCountByPartnerId(String partnerId) {
+    public int getOrderCountByPartnerId(String partnerId) {
         // orderCount should denote the orders given by a partner-id
-        Integer result = orderRepository.getOrderCountByPartnerId(partnerId);
+        int result = orderRepository.getOrderCountByPartnerId(partnerId);
         return result;
     }
 
@@ -57,15 +57,15 @@ public class OrderService {
         return result;
     }
 
-    public Integer getCountOfUnassignedOrders() {
+    public int getCountOfUnassignedOrders() {
         // Count of orders that have not been assigned to any DeliveryPartner
-        Integer countOfOrders = orderRepository.getCountOfUnassignedOrders();
+        int countOfOrders = orderRepository.getCountOfUnassignedOrders();
         return countOfOrders;
     }
 
-    public Integer getOrdersLeftAfterGivenTimeByPartnerId(String time, String partnerId) {
+    public int getOrdersLeftAfterGivenTimeByPartnerId(String time, String partnerId) {
         // countOfOrders that are left after a particular time of a DeliveryPartner
-        Integer countOfOrders = orderRepository.getOrdersLeftAfterGivenTimeByPartnerId(time, partnerId);
+        int countOfOrders = orderRepository.getOrdersLeftAfterGivenTimeByPartnerId(time, partnerId);
         return countOfOrders;
     }
 
