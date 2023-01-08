@@ -54,13 +54,13 @@ public class OrderRepository {
 
     public Integer getOrderCountByPartnerId(String partnerId) {
         // orderCount should denote the orders given by a partner-id
-        Integer orders = pairDb.get(partnerId).size();
+        Integer orders = pairDb.getOrDefault(partnerId, new ArrayList<>()).size();
         return orders;
     }
 
     public List<String> getOrdersByPartnerId(String partnerId) {
         // orders should contain a list of orders by PartnerId
-        List<String> orders = pairDb.get(partnerId);
+        List<String> orders = pairDb.getOrDefault(partnerId, new ArrayList<>());
         return orders;
     }
 
