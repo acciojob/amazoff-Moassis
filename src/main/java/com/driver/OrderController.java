@@ -1,7 +1,7 @@
 package com.driver;
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("orders")
 public class OrderController {
 
-    @Autowired
-    OrderService orderService;
+    // @Autowired
+    OrderService orderService = new OrderService();;
 
     @PostMapping("/add-order")
     public ResponseEntity<String> addOrder(@RequestBody Order order) {
