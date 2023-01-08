@@ -81,12 +81,12 @@ public class OrderRepository {
 
     public int getCountOfUnassignedOrders() {
         // Count of orders that have not been assigned to any DeliveryPartner
-        int countOfOrders = 0;
-        for (String s : orderDb.keySet()) {
-            if (!assignedDb.containsKey(s)) {
-                countOfOrders++;
-            }
-        }
+        int countOfOrders = orderDb.size() - assignedDb.size();
+        // for (String s : orderDb.keySet()) {
+        // if (!assignedDb.containsKey(s)) {
+        // countOfOrders++;
+        // }
+        // }
         return countOfOrders;
     }
 
